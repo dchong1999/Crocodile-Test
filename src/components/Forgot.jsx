@@ -5,11 +5,11 @@ const Forgot = ({setPage}) => {
   const [password, setPassword] = useState('');
   const handle = (e) => {
     e.preventDefault();
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/;
     if (email !== '' && password !=='' && regex.test(password)) {
       setPage(3);
     } else {
-      window.alert('Try Again. Remember to enter both email and password. Password must be 8+ characters and include letters and numbers');
+      window.alert('Try Again. Remember to enter both email and password. Password must be 8+ characters and include letters, numbers, and symbols: !@#$%^&*');
       setPage(2);
     }
   }
