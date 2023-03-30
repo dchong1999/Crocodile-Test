@@ -1,0 +1,41 @@
+.page{
+  text-align: center;
+  padding: 5%;
+}
+
+.success{
+  padding: 10%;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+input{
+  margin: 15px;
+  width: 50%;
+  height: 4rem;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+.square{
+  margin: 15px;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 4rem;
+  font-size: 2rem;
+}
+
+.round{
+  margin: 15px;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 15px;
+  height: 4rem;
+  font-size: 2rem;
+}
+
+h3{
+  margin-top: 20px;
+}
