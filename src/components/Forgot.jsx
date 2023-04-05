@@ -8,18 +8,25 @@ const Forgot = ({setPage, username, setPassword}) => {
   const handle = (e) => {
     e.preventDefault();
     const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z0-9!@#$%^&*]{8,}$/;
-    if (email !== '' && newPassword !=='' && regex.test(newPassword)) {
-      setError(false);
-      if (email === username) {
-        setError1(false);
+    if (email === username) {
+      setError1(false);
+      if (newPassword !=='' && regex.test(newPassword)){
+        setError(false);
         setPage(3);
         setPassword(newPassword);
       } else {
-        setError1(true);
+        setError(true);
+        setPage(2);
       }
     } else {
-      setError(true);
-      setPage(2);
+      setError1(true);
+      if (newPassword !=='' && regex.test(newPassword)){
+        setError(false);
+        setPage(2);
+      } else {
+        setError(true);
+        setPage(2);
+      }
     }
   }
   return (
