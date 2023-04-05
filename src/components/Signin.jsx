@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 
-const Signin = ({setPage}) => {
+const Signin = ({setPage, username, password}) => {
+  const [usernameAttempt, setUsernameAttempt] = useState('');
+  const [passwordAttempt, setPasswordAttempt] = useState('');
+  const [error, setError] = useState(false);
+  const handle = (e) => {
+    e.preventDefault();
+    if (usernameAttempt === username && passwordAttempt === password) {
+      setError(false);
+      window.alert("Successful Login");
+    } else {
+      setError(true);
+    }
+  }
   return (
     <div className='page'>
       <h1>Signin</h1>
-      <form>
-        <div><input type="text" placeholder="Username"></input></div>
-        <div><input type="text" placeholder="Password"></input></div>
-        <div><button className='square'>Login</button></div>
-        <div><button className='round' onClick={(e) => setPage(2)}>Forgot Password</button></div>
+      <form onSubmit={(e) => {handle(e)}}>
+        <div><input type="text" placeholder="Username" onChange={(e) => {setUsernameAttempt(e.target.value)}}></input></div>
+        <div><input type="text" placeholder="Password" onChange={(e) => {setPasswordAttempt(e.target.value)}}></input></div>
+        {error ? <h4>Your account or password is incorrect. If you don't remember your password reset it now.</h4>: null}
+        <div><button className='square' type='submit'>Login</button></div>
+        <div><button className='round' type='button' onClick={(e) => setPage(2)}>Forgot Password</button></div>
       </form>
     </div>
   );

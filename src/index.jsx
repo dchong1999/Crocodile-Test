@@ -10,12 +10,15 @@ import './index.css';
 
 const App = () => {
   const [page, setPage] = useState(1);
+  //hardcoded login
+  const [username, setUsername] = useState('crocodile23@gmail.com');
+  const [password, setPassword] = useState('Passw0rd!');
 
   return (
     <div id='main'>
-        {(page == 1) && <Signin setPage={setPage}/>}
-        {(page == 2) && <Forgot setPage={setPage}/>}
-        {(page ==3) && <Success/>}
+        {(page == 1) && <Signin setPage={setPage} username={username} password={password}/>}
+        {(page == 2) && <Forgot setPage={setPage} username={username} setPassword={setPassword}/>}
+        {(page ==3) && <Success setPage={setPage}/>}
     </div>
   );
 }
